@@ -527,7 +527,7 @@ function mxRuler(editorUi, unit, isVertical, isSecondery)
 };
 
 mxRuler.prototype.RULER_THICKNESS = 14;
-mxRuler.prototype.unit = mxConstants.POINTS;
+mxRuler.prototype.unit = mxConstants.MILLIMETERS;
 
 mxRuler.prototype.setUnit = function(unit) 
 {

@@ -1614,8 +1614,12 @@ App.prototype.init = function()
 		this.bg = this.createBackground();
 		document.body.appendChild(this.bg);
 		this.diagramContainer.style.visibility = 'hidden';
-		this.formatContainer.style.visibility = 'hidden';
-		this.hsplit.style.display = 'none';
+
+		if (urlParams['showFormatContainer'] == 1) {
+			this.formatContainer.style.visibility = 'hidden';
+			this.hsplit.style.display = 'none';
+		}
+
 		this.sidebarContainer.style.display = 'none';
 		this.sidebarFooterContainer.style.display = 'none';
 
@@ -3646,14 +3650,14 @@ App.prototype.showSplash = function(force)
 	{
 		var rowLimit = (serviceCount == 4) ? 2 : 3;
 		
-		var dlg = new StorageDialog(this, mxUtils.bind(this, function()
-		{
-			this.hideDialog();
-			showSecondDialog();
-		}), rowLimit);
+		// var dlg = new StorageDialog(this, mxUtils.bind(this, function()
+		// {
+		// 	this.hideDialog();
+		// 	showSecondDialog();
+		// }), rowLimit);
 		
-		this.showDialog(dlg.container, (rowLimit < 3) ? 200 : 300,
-			((serviceCount > 3) ? 320 : 210), true, false);
+		// this.showDialog(dlg.container, (rowLimit < 3) ? 200 : 300,
+		// 	((serviceCount > 3) ? 320 : 210), true, false);
 	}
 	else if (urlParams['create'] == null)
 	{

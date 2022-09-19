@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flowchart Maker &amp; Online Diagram Software</title>
+    <title>CABSYS app</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="Description" content="diagrams.net is free online diagram software for making flowcharts, process diagrams, org charts, UML, ER and network diagrams">
@@ -38,6 +38,23 @@
 		 */
 		var urlParams = (function()
 		{
+
+			result['dev'] = 1;
+			result['test']=1;
+			result['ignoremime']=1;
+			result['createindex']=1;
+			result['filesupport']=0;
+			result['savesidebar']=1;
+			result['pages']=1;
+			result['filesupport']=0;
+			result['offline']=1;
+			result['https']=0;
+			result['showMenu'] = 0;
+			result['showToolbar'] = 0;
+			result['showSidebarContainer'] = 1;
+			result['showFormatContainer'] = 0;
+			result['showTabContainer'] = 0;
+
 			var result = new Object();
 			var params = window.location.search.slice(1).split('&');
 			
@@ -51,21 +68,6 @@
 				}
 			}
 
-			//// ACG: dev only
-			result['dev'] = 1;
-			result['test']=1;
-			result['ignoremime']=1;
-			result['createindex']=1;
-			result['filesupport']=0;
-			result['savesidebar']=1;
-			result['pages']=1;
-			result['filesupport']=0;
-			result['offline']=1;
-			result['https']=0;
-			result['showMenu'] = 0;
-			result['sketch'] = 1;
-
-			
 			return result;
 		})();
 		
@@ -281,6 +283,12 @@
 				mxForceIncludes = true;
 			}
 
+			//// to make it work locally in tomcat
+			geBasePath = './js/grapheditor';
+			mxBasePath = './mxgraph';
+			drawDevUrl = './';
+
+
 			mxForceIncludes = false;
 
 			mxscript(drawDevUrl + '/js/PreConfig.js');
@@ -447,15 +455,15 @@
 <body class="geEditor">
 <div id="geInfo">
 	<div class="geBlock">
-		<h1>Flowchart Maker and Online Diagram Software</h1>
+		<!--<h1>Flowchart Maker and Online Diagram Software</h1>
 		<p>
 			diagrams.net (formerly draw.io) is free online diagram software. You can use it as a flowchart maker, network diagram software, to create UML online, as an ER diagram tool, 
 			to design database schema, to build BPMN online, as a circuit diagram maker, and more. draw.io can import .vsdx, Gliffy&trade; and Lucidchart&trade; files .
-		</p>
+		</p> -->
 		<h2 id="geStatus">Loading...</h2>
-		<p>
+		<!--<p>
 			Please ensure JavaScript is enabled.
-		</p>
+		</p>-->
 	</div>
 </div>
 <script type="text/javascript">

@@ -179,8 +179,9 @@ mxGraph.prototype.pageScale = 1;
 		if (navigator != null && navigator.language != null)
 		{
 			var lang = navigator.language.toLowerCase();
-			mxGraph.prototype.pageFormat = (lang === 'en-us' || lang === 'en-ca' || lang === 'es-mx') ?
-				mxConstants.PAGE_FORMAT_LETTER_PORTRAIT : mxConstants.PAGE_FORMAT_A4_PORTRAIT;
+			mxGraph.prototype.pageFormat = /*(lang === 'en-us' || lang === 'en-ca' || lang === 'es-mx') ?
+				mxConstants.PAGE_FORMAT_A3_PORTRAIT : mxConstants.PAGE_FORMAT_A4_PORTRAIT;*/
+				mxConstants.PAGE_FORMAT_A3_LANDSCAPE;
 		}
 	}
 	catch (e)
