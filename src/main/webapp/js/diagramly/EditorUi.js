@@ -275,7 +275,7 @@
 					args.push(arguments[i]);
 			    }
 			    
-				console.log.apply(console, args);
+				//console.log.apply(console, args);
 			}
 		}
 		catch (e)
@@ -7682,7 +7682,7 @@
 									args.push(obj.thumb);
 								}
 
-								console.log.apply(console, args);
+								//console.log.apply(console, args);
 							}
 					}
 					catch (e)
@@ -10603,27 +10603,49 @@
 				// TODO: Change theme at runtime
 				if (curr == 'sketch' && value == 'default')
 				{
-					this.sidebarFooterContainer.style.display = 'block';
-					this.menubarContainer.style.display = 'block';
-					this.toolbarContainer.style.display = 'block';
-					this.sidebarContainer.style.display = 'block';
-					this.tabContainer.style.display = 'block';
-					this.hsplit.style.display = 'block';
-					this.hsplitPosition = EditorUi.prototype.hsplitPosition;
-					this.menubarHeight = App.prototype.menubarHeight;
+					//this.sidebarFooterContainer.style.display = 'block';
+
+					if (urlParams['showMenu'] == 1) {
+
+						this.menubarContainer.style.display = 'block';
+						this.menubarHeight = App.prototype.menubarHeight;
+					}
+
+					if (urlParams['showToolbar'] == 1) this.toolbarContainer.style.display = 'block';
+
+					if (urlParams['showSidebarContainer'] == 1) {
+
+						this.sidebarContainer.style.display = 'block';
+						this.hsplit.style.display = 'block';
+						this.hsplitPosition = EditorUi.prototype.hsplitPosition;
+					}
+
+					if (urlParams['showTabContainer'] == 1) this.tabContainer.style.display = 'block';
+					
 					this.formatWidth = EditorUi.prototype.formatWidth;
 					noRestart = true;
 				}
 				else if (curr == 'default' && value == 'sketch')
 				{
-					this.sidebarFooterContainer.style.display = 'none';
-					this.menubarContainer.style.display = 'none';
-					this.toolbarContainer.style.display = 'none';
-					this.sidebarContainer.style.display = 'none';
-					this.tabContainer.style.display = 'none';
-					this.hsplit.style.display = 'none';
-					this.hsplitPosition = 0;
-					this.menubarHeight = 0;
+
+					if (urlParams['showMenu'] == 1) {
+
+						this.menubarContainer.style.display = 'none';
+						this.menubarHeight = 0;
+					}
+					if (urlParams['showToolbar'] == 1) this.toolbarContainer.style.display = 'none';
+
+					if (urlParams['showSidebarContainer'] == 1) {
+
+						this.sidebarContainer.style.display = 'none';
+						this.hsplit.style.display = 'none';
+						this.hsplitPosition = 0;
+						//this.sidebarFooterContainer.style.display = 'none';
+
+					}
+					
+					if (urlParams['showTabContainer'] == 1) this.tabContainer.style.display = 'none';
+					
 					this.formatWidth = 0;
 					noRestart = true;
 				}
@@ -12399,10 +12421,21 @@
 	EditorUi.prototype.setGraphEnabled = function(enabled)
 	{
 		this.diagramContainer.style.visibility = (enabled) ? '' : 'hidden';
-		this.formatContainer.style.visibility = (enabled) ? '' : 'hidden';
-		this.sidebarFooterContainer.style.display = (enabled) ? '' : 'none';
-		this.sidebarContainer.style.display = (enabled) ? '' : 'none';
-		this.hsplit.style.display = (enabled) ? '' : 'none';
+		
+		if (urlParams['showFormatContainer'] == 1) {
+
+			this.formatContainer.style.visibility = (enabled) ? '' : 'hidden';
+		}
+
+
+		if (urlParams['showSidebarContainer'] == 1) {
+
+			this.sidebarContainer.style.display = (enabled) ? '' : 'none';
+			//this.sidebarFooterContainer.style.display = (enabled) ? '' : 'none';
+			this.hsplit.style.display = (enabled) ? '' : 'none';
+
+		}
+
 		this.editor.graph.setEnabled(enabled);
 		
 		if (this.ruler != null)
@@ -12411,7 +12444,7 @@
 			this.ruler.vRuler.container.style.visibility = (enabled) ? '' : 'hidden';
 		}
 		
-		if (this.tabContainer != null)
+		if (this.tabContainer != null && urlParams['showTabContainer'] == 1)
 		{
 			this.tabContainer.style.visibility = (enabled) ? '' : 'hidden';	
 		}

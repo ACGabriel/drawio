@@ -326,7 +326,7 @@ EditorUi.initMinimalTheme = function()
     
     EditorUi.prototype.updateTabContainer = function()
     {
-    	if (this.tabContainer != null)
+    	if (this.tabContainer != null && urlParams['showTabContainer'] == 1)
         {
         	// Makes room for view zoom menu
         	this.tabContainer.style.right = '70px';
@@ -2410,7 +2410,7 @@ EditorUi.initMinimalTheme = function()
 	    	{
 	    		uiSetGraphEnabled.apply(this, arguments);
 	    		
-	    		if (this.tabContainer != null)
+	    		if (this.tabContainer != null && urlParams['showTabContainer'] == 1)
 	    		{
 	    			elt.style.visibility = this.tabContainer.style.visibility;
     	        	this.diagramContainer.style.bottom = (this.tabContainer.style.visibility != 'hidden' &&

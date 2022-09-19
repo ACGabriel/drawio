@@ -427,7 +427,7 @@ EditorUi.prototype.initPages = function()
 		
 		graph.view.validateBackground = mxUtils.bind(this, function()
 		{
-			if (this.tabContainer != null)
+			if (this.tabContainer != null && urlParams['showTabContainer'] == 1)
 			{
 				var prevHeight = this.tabContainer.style.height;
 				
@@ -1304,7 +1304,7 @@ EditorUi.prototype.createTabContainer = function()
  */
 EditorUi.prototype.updateTabContainer = function()
 {
-	if (this.tabContainer != null && this.pages != null)
+	if (this.tabContainer != null && this.pages != null && urlParams['showTabContainer'] == 1)
 	{
 		var graph = this.editor.graph;
 		var wrapper = document.createElement('div');

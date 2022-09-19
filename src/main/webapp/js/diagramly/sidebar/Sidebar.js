@@ -1260,10 +1260,10 @@
 		// LATER: Check if conflicts with restore libs after loading file
 		this.showEntries();
 		
-		if (this.createdSearchIndex != null)
-		{
-			console.log('searchFileData', Graph.compress(JSON.stringify(this.createdSearchIndex)));
-		}
+		// if (this.createdSearchIndex != null)
+		// {
+		// 	console.log('searchFileData', Graph.compress(JSON.stringify(this.createdSearchIndex)));
+		// }
 	};
 	
 	/**

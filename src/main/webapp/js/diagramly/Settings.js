@@ -230,7 +230,7 @@ var mxSettings =
 	},
 	getUnit: function()
 	{
-		return mxSettings.settings.unit || mxConstants.POINTS;
+		return mxSettings.settings.unit || mxConstants.MILLIMETERS;
 	},
 	setUnit: function(value)
 	{
@@ -275,7 +275,7 @@ var mxSettings =
 			version: mxSettings.currentVersion,
 			// Only defined and true for new settings which haven't been saved
 			isNew: true,
-			unit: mxConstants.POINTS,
+			unit: mxConstants.MILLIMETERS,
 			isRulerOn: false
 		};
 	},
